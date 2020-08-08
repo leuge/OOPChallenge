@@ -1,0 +1,19 @@
+{
+  "name": "oopchallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leuge/OOPChallenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leuge/OOPChallenge/issues"
+  },
+  "homepage": "https://github.com/leuge/OOPChallenge#readme"
+}
