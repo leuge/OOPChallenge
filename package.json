@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/leuge/OOPChallenge/issues"
   },
-  "homepage": "https://github.com/leuge/OOPChallenge#readme"
+  "homepage": "https://github.com/leuge/OOPChallenge#readme",
+  "devDependencies": {
+    "jest": "^26.2.2"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
 }
