@@ -52,3 +52,61 @@ function addManager(){
    menu()
 })
 }
+function addEngineer(){
+    inquirer.prompt([{
+        type:"input",
+        message:"What is your name",
+        name:"employeeName"
+    },
+    {
+        type:"input",
+        message:"What is your email?",
+        name:"employeeEmail"
+    },
+    {
+        type:"input",
+        message:"What is your office number?",
+        name:"employeeOfficeNumber"
+    },
+    {
+        type:"input",
+        message: "What is your github profile?",
+        name: "employeeGithub"
+    }
+]).then(userInput=>{
+    var engineer=new Engineer(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeOfficeNumber,userInput.employeeGithub)
+    employeeDB.push(engineer)
+   console.log(employeeDB)
+
+   menu()
+})
+}
+function addIntern(){
+    inquirer.prompt([{
+        type:"input",
+        message:"What is your name",
+        name:"employeeName"
+    },
+    {
+        type:"input",
+        message:"What is your email?",
+        name:"employeeEmail"
+    },
+    {
+        type:"input",
+        message:"What is your office number?",
+        name:"employeeOfficeNumber"
+    },
+    {
+        type:"input",
+        message: "What is your school?",
+        name: "employeeSchool"
+    }
+]).then(userInput=>{
+    var intern=new Intern(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeOfficeNumber,userInput.employeeSchool)
+    employeeDB.push(intern)
+   console.log(employeeDB)
+
+   menu()
+})
+}

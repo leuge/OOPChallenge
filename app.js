@@ -8,5 +8,5 @@ var server = http.createServer(function(req, res){
     myReadStream.pipe(res);
 });
 
-server.listen(3000, '7.3.3');
-console.log('its working')
+// server.listen(3000, '7.3.3');
+// console.log('its working')
