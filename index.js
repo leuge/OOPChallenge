@@ -1,3 +1,6 @@
+const render = require("./src/page-template.js")
+const path = require("path")
+const fs = require("fs")
 const inquirer = require("inquirer")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
@@ -25,6 +28,7 @@ function menu() {
             case "add intern":
                 addIntern()
                 break
+            default:buildPage()
         }
     })
 }
@@ -69,7 +73,7 @@ function addEngineer(){
         name: "employeeGithub"
     },
 ]).then(userInput=>{
-    var engineer=new Engineer(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeOfficeNumber,userInput.employeeGithub)
+    var engineer=new Engineer(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeGithub)
     employeeDB.push(engineer)
    console.log(employeeDB)
 
@@ -93,10 +97,15 @@ function addIntern(){
         name: "employeeSchool"
     },
 ]).then(userInput=>{
-    var intern=new Intern(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeOfficeNumber,userInput.employeeSchool)
+    var intern=new Intern(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeSchool)
     employeeDB.push(intern)
    console.log(employeeDB)
 
    menu()
 })
+}
+
+function buildPage(){
+    fs.writeFileSync((__dirname,"team.html"),render(employeeDB),"utf-8")
+    addManager()
 }
