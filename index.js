@@ -65,14 +65,9 @@ function addEngineer(){
     },
     {
         type:"input",
-        message:"What is your office number?",
-        name:"employeeOfficeNumber"
-    },
-    {
-        type:"input",
         message: "What is your github profile?",
         name: "employeeGithub"
-    }
+    },
 ]).then(userInput=>{
     var engineer=new Engineer(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeOfficeNumber,userInput.employeeGithub)
     employeeDB.push(engineer)
@@ -94,14 +89,9 @@ function addIntern(){
     },
     {
         type:"input",
-        message:"What is your office number?",
-        name:"employeeOfficeNumber"
-    },
-    {
-        type:"input",
         message: "What is your school?",
         name: "employeeSchool"
-    }
+    },
 ]).then(userInput=>{
     var intern=new Intern(userInput.employeeName,id++,userInput.employeeEmail,userInput.employeeOfficeNumber,userInput.employeeSchool)
     employeeDB.push(intern)
