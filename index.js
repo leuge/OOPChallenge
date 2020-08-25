@@ -5,6 +5,7 @@ const inquirer = require("inquirer")
 const Manager = require("./lib/Manager")
 const Engineer = require("./lib/Engineer")
 const Intern = require("./lib/Intern")
+const pageTemplate=require("./src/page-template")
 
 const employeeDB = []
 
@@ -16,7 +17,7 @@ function menu() {
         type: "list",
         message: "Please choose from the selection",
         name: "addEmployee",
-        choices: ["add manager", "add engineer", "add intern"]
+        choices: ["add manager", "add engineer", "add intern","quit"]
     }]).then(userInput => {
         switch (userInput.addEmployee) {
             case "add manager":
@@ -28,7 +29,8 @@ function menu() {
             case "add intern":
                 addIntern()
                 break
-            default:buildPage()
+            default:
+                buildPage()
         }
     })
 }
@@ -106,6 +108,10 @@ function addIntern(){
 }
 
 function buildPage(){
-    fs.writeFileSync((__dirname,"team.html"),render(employeeDB),"utf-8")
-    addManager()
+ 
+    var team=pageTemplate(employeeDB)
+    fs.writeFile("./index.html",team,function(err){
+        if(err) throw (err)
+        console.log("success")
+    })
 }

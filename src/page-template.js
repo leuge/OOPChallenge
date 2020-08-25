@@ -1,6 +1,5 @@
 // create the team
 const generateTeam = team => {
-    ​
         // create the manager html
         const generateManager = manager => {
             return `
@@ -19,7 +18,7 @@ const generateTeam = team => {
         </div>
             `;
         };
-    ​
+
         // create the html for engineers
         const generateEngineer = engineer => {
             return `
@@ -38,7 +37,7 @@ const generateTeam = team => {
     </div>
             `;
         };
-    ​
+
         // create the html for interns
         const generateIntern = intern => {
             return `
@@ -49,7 +48,7 @@ const generateTeam = team => {
         </div>
         <div class="card-body">
             <ul class="list-group">
-                <li class="list-group-item">ID: {{ id }}</li>
+                <li class="list-group-item">ID: ${intern.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
                 <li class="list-group-item">School: ${intern.getSchool()}</li>
             </ul>
@@ -57,9 +56,9 @@ const generateTeam = team => {
     </div>
             `;
         };
-    ​
+
         const html = [];
-    ​
+
         html.push(team
             .filter(employee => employee.getRole() === "Manager")
             .map(manager => generateManager(manager))
@@ -74,18 +73,16 @@ const generateTeam = team => {
             .map(intern => generateIntern(intern))
             .join("")
         );
-    ​
+
         return html.join("");
-    ​
+
     }
-    ​
     // export function to generate entire page
     module.exports = team => {
-    ​
+
         return `
         <!DOCTYPE html>
     <html lang="en">
-    ​
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
